@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js%22%3E%3C/script%3E"></script>
+    <title>Todo App</title>
+    
+</head>
+<body>
+    <div style="margin-top: 50px" class="ui container">
+        <h1 class="ui center aligned header">Todo App</h1>
+        <form class="ui form" action="/add" method="post">
+            <div class="field">
+                <label>Job Title</label>
+                <input type="text" name="title" placeholder="Enter Todo..."><br>
+            </div>
+            <button class="ui blue button" type="submit">Add</button>
+        </form>
+        <br>
+        <table class="table" border="1">
+            <thead class="head">
+            <th>id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Action 1</th>
+            <th>Action 2</th>
+            </thead>
+            
+            {% for user in users %}
+            <tbody>
+                
+                <tr>
+                    <td></td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                    <td><a href="/update/{{user.id}}">Update</a></td>
+                    <td><a href="/delete/{{user.id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>     
+    </div>
+</body>
+</html>
